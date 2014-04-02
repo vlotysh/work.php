@@ -16,15 +16,17 @@
 
 
             $(document).ready(function() {
-
-                $('form select[name=status]').change(function() {
+                
+                
+                $('form').on("change","select[name=status]",function() {
                     
-                    $("#error").slideUp('slow'); // убираем блок с ошибкой, если он был
-                    $("#loading").slideDown('slow'); // показываем индикатор загрузки
+                   $("#error").slideUp('slow'); // убираем блок с ошибкой, если он был
+                   $("#loading").slideDown('slow'); // показываем индикатор загрузки
                     
                    var select = $(this).val();
                    var id = $(this).attr('rel');
-                    console.log(select+' '+ id);
+                  
+                
                  $.ajax({// описываем наш запрос
                         type: "POST", // будем передавать данные через POST
                         dataType: "json", // указываем, что нам вернется JSON
@@ -38,7 +40,7 @@
                             }
                             if (response.code == 'success') // если вернулся статус успешного добавления статьи в БД
                             {
-                                $("#articles").load('/ajax/getarticles'); // обновляем список статей
+                                $("#status img").attr('src','img/status_'+response.status+'.png'); // обновляем список статей
                             }
                      
                             $("#loading").slideUp('slow'); // убираем индикатор загрузки
@@ -71,7 +73,7 @@
                             }
                             if (response.code == 'success') // если вернулся статус успешного добавления статьи в БД
                             {
-                                $("#articles").load('/ajax/getarticles'); // обновляем список статей
+                                 $("#articleList").load('/ajax/getarticles'); // обновляем список статей
                             }
                             $("#sendAjax").removeAttr('disabled'); // делаем кнопку снова доступной
                             $("#loading").slideUp('slow'); // убираем индикатор загрузки

@@ -23,13 +23,22 @@ class Controller_Articles extends Controller_Application {
         $data = array();
 
         
-        $data['articles'] = $this->articles->getArticles();  // берем массив статей из модели
-        $data['status'] = $this->articles->getAllStatus();
-        $data['addarticle'] = View::factory('AddArticle', $data);
+        $data['articles'] = $this->articles->getArticles();
+        
+// берем массив статей из модели\
+        if(!Session::instance()->get('status')) {
+            
+           $stat = $this->articles->getAllStatus();
+        Session::instance()->bind('status',$stat);
+        }
+        
+        $data['status'] = Session::instance()->get('status');
+        $data['articleList'] = View::factory('articleList', $data);
+        $data['addarticle'] = View::factory('addArticle', $data);
         
         
         $this->template->title = 'Работа';
-        $this->template->articles = View::factory('AllArticles', $data); // и отправляем его в вид
+        $this->template->articles = View::factory('articlesPage', $data); // и отправляем его в вид
       
     }
 

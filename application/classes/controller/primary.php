@@ -11,6 +11,12 @@ class Controller_Primary extends Controller_Template {
         $this->template->postbook = '';
         $this->template->articles = '';
         $this->template->title = '';
+        $this->template->addarticle ='';
+        
+        
+        $this->template->scripts = Filescanner::scanFile('media/js');
+        $this->template->style = Filescanner::scanFile('media/css');
+       
   
         }
 

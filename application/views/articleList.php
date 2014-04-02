@@ -1,4 +1,3 @@
-
 <h3>Вакансии</h3>
 <table class="table">
     <thead>
@@ -41,5 +40,3 @@ foreach ($articles as $v):
  <hr>
              
 </table>
-
-   <div id="addarticle"><?= $addarticle; ?></div>		

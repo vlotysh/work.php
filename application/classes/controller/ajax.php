@@ -7,9 +7,9 @@ class Controller_Ajax extends Controller {
     public function action_getarticles() { // метод вывода всех статей
         if (Request::initial()->is_ajax()) { // выполняем только если запрос был через Ajax
             $articles = new Model_Articles();
-            $data['articles'] = $articles->getArticles(); // получаем массив со всеми статьями
-            $data['status'] = $articles->getAllStatus();
-            echo View::factory('AllArticles', $data)->render(); // выводим статьи в виде
+            $data['articles'] = $articles->getArticles();
+            $data['status'] = Session::instance()->get('status');// получаем массив со всеми статьями
+            echo View::factory('articleList', $data)->render(); // выводим статьи в виде
         }
     }
 
@@ -51,6 +51,7 @@ class Controller_Ajax extends Controller {
             
             if ($articles) {
                 $result['code'] = 'success';
+                  $result['status'] = $status;
             }
             
              echo json_encode($result); 

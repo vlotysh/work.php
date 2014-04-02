@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Works</title>
+        <title><?php echo $title;?></title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link href="/media/css/bootstrap.min.css" rel="stylesheet">
         <link href="/media/css/style.css" rel="stylesheet">
+        
+        <?php
+
+foreach ($scripts as $script) {
+    echo HTML::script('media/js/'.$script);
+}
+?>
+        
+     
         <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
         <script src="/media/js/main.js" type="text/javascript"></script>
         
