@@ -1,0 +1,27 @@
+hr {
+    margin: 5px 0;
+}
+#articles table {
+    margin: 0;
+}
+table tbody tr td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+#articles table th  {
+    text-align: center;
+}
+
+#articles table tr td  #text,#articles table tr td  #url {
+    text-align: left;
+}
+#articles table tr td #text {
+    vertical-align: middle;
+    text-align: left;
+}
+
+
+#articles table p {
+    margin: 0;
+}
