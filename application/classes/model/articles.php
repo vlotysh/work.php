@@ -14,6 +14,8 @@ class Model_Articles extends ORM {
                         ->on('articles.status_id', '=', 'status.id')
                         ->execute()
                         ->as_array();
+        
+        
     }
 
     public function getOneArticles($id = '') { // функция получения всех статей из БД как массива

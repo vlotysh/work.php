@@ -25,3 +25,17 @@ table tbody tr td {
 #articles table p {
     margin: 0;
 }
+
+
+#nav {
+    width: 100%;
+    height: 40px;
+}
+#nav ul {
+    overflow: hidden;
+}
+#nav ul li {
+    width: 120px;
+    float: left;
+    
+}

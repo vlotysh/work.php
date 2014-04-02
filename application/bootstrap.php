@@ -195,6 +195,15 @@ Route::set('logout', 'logout')
 	));
 
 
+
+
+Route::set('postbook', 'postbook')
+	->defaults(array(
+		'controller' => 'postbook',
+		'action'     => 'index',
+	));
+
+
 Route::set('edit', 'edit/<id>', array('id' => '[0-9]+'))
 	->defaults(array(
 		'controller' => 'articles',

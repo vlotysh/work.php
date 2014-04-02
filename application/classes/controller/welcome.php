@@ -8,7 +8,9 @@ class Controller_Welcome extends Controller_Application  {
 	{		
         $this->template->content = View::factory('welcome');
 	}
-  
+        
+       
+        
         public function action_language()
 	{
 		// requested language

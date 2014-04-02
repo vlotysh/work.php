@@ -24,8 +24,17 @@
         <div id="wrap">
             <div class="push"></div>
             <div class="container"> 
+                 <div id="nav">
+            <ul class="nav nav-pills">
+                <li class="<?=$work;?>" style="width: 150px;text-align: center;"><a href="/">Вакансии</a></li>
+              <li class="<?=$postbook;?>" style="width: 150px;text-align: center;"><a href="postbook">Записная книжка</a></li>
+              
+             
+            </ul>
+            
+          </div>
                 <div class="page-header">
-                    <h1><a href="/">Work!</a> <small></small></h1>
+                    <h1><? echo $title;?> <small></small></h1>
                 </div>				
             </div>
             <div class="container"> 

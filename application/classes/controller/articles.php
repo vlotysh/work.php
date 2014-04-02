@@ -12,7 +12,7 @@ class Controller_Articles extends Controller_Application {
         parent::before();
         
         
-        
+         $this->template->work = 'active';
         $this->template->addarticle = View::factory('AddArticle'); 
         $this->articles = ORM::factory('articles');
    
@@ -27,6 +27,8 @@ class Controller_Articles extends Controller_Application {
         $data['status'] = $this->articles->getAllStatus();
         $data['addarticle'] = View::factory('AddArticle', $data);
         
+        
+        $this->template->title = 'Работа';
         $this->template->articles = View::factory('AllArticles', $data); // и отправляем его в вид
       
     }
