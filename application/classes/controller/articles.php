@@ -27,7 +27,7 @@ class Controller_Articles extends Controller_Application {
 // берем массив статей из модели\
         if(!Session::instance()->get('status')) {
             
-           $stat = $this->articles->getAllStatus();
+        $stat = $this->articles->getAllStatus();
         Session::instance()->bind('status',$stat);
         }
         
