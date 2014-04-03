@@ -21,8 +21,7 @@ class Controller_Articles extends Controller_Application {
 
     public function action_index() {
         $data = array();
-
-        
+       
         $data['articles'] = $this->articles->getArticles();
         
 // берем массив статей из модели\

@@ -3,23 +3,21 @@
     <head>
         <title><?php echo $title;?></title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <link href="/media/css/bootstrap.min.css" rel="stylesheet">
-        <link href="/media/css/style.css" rel="stylesheet">
+              
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0;">
         
-        <?php
+                          <?php
+
+foreach ($styles as $style) {
+    echo HTML::style('media/css/'.$style);
+}
+?>
+          <?php
 
 foreach ($scripts as $script) {
     echo HTML::script('media/js/'.$script);
 }
 ?>
-        
-     
-        <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-        <script src="/media/js/main.js" type="text/javascript"></script>
-        
-       
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0;">
-        <link href="/media/css/bootstrap-responsive.min.css" rel="stylesheet">
     </head>
     <body>
         
@@ -53,5 +51,7 @@ foreach ($scripts as $script) {
         </div>
              
               <? } endif;?>
+             
+                
     </body>
 </html>

@@ -194,6 +194,11 @@ Route::set('logout', 'logout')
 		'action'     => 'logout',
 	));
 
+Route::set('basic', '<controller>',array('id' => '[a-z]+'))
+	->defaults(array(
+		'controller' => 'articles',
+		'action'     => 'index',
+	));
 
 
 

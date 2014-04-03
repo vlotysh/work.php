@@ -12,10 +12,13 @@ class Controller_Primary extends Controller_Template {
         $this->template->articles = '';
         $this->template->title = '';
         $this->template->addarticle ='';
+        $this->template->error ='';
+        $this->template->message ='';
+        
         
         
         $this->template->scripts = Filescanner::scanFile('media/js');
-        $this->template->style = Filescanner::scanFile('media/css');
+        $this->template->styles = Filescanner::scanFile('media/css');
        
   
         }
