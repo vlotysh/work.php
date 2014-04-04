@@ -1,0 +1,2 @@
+<?=$postslist?>
+<?=$addform?>

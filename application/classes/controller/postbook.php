@@ -12,13 +12,32 @@ class Controller_Postbook extends Controller_Application {
 
         public function action_index()
 	{
+             $model = Model::factory('postbook');
             if($_POST) {
-                var_dump($_POST);
+                               
+                
+                $model->addPost($_POST);
+                                     
+                $this->request->redirect('/postbook');
             }
-            $data = array();
-            $model = Model::factory('postbook');
+            
+        $data = array();
+       
+        $data['posts'] = $model->getAllPost();
+        
+        
         $data['types'] = $model->getTypes();   
-         $this->template->articles = View::factory('postbook/addform',$data);
+        var_dump( $data['posts']);
+        foreach ($data['posts'] as $po) {
+            echo $po['title'].' ';
+            
+            $ar[] =  $po['date'];
+        }
+     
+        
+        $data['addform'] = View::factory('postbook/addform',array('types'=>$data['types']));
+        $data['postslist'] = View::factory('postbook/postslist');
+        $this->template->articles = View::factory('postbook/allposts',$data);
          
 	}
 }

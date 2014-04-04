@@ -7,7 +7,7 @@
          <select required="required" name="type">
         <?php $i = 0;foreach($types as $type) :?>
        
-             <option value="<?php echo $type['id']?>"><?php echo $type['name'] ?></option>
+             <option value="<?php echo $type['id']?>"><?php echo $type['type_name'] ?></option>
          
         <?php $i++; endforeach;?>
           </select>

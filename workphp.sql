@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Мар 31 2014 г., 19:04
+-- Время создания: Апр 04 2014 г., 12:44
 -- Версия сервера: 5.6.12-log
 -- Версия PHP: 5.4.12
 
@@ -43,7 +43,32 @@ CREATE TABLE IF NOT EXISTS `articles` (
 --
 
 INSERT INTO `articles` (`id`, `name`, `url`, `text`, `date`, `status_id`) VALUES
-(22, 'sadd', 'asd', 'asd', 1395863642, 1);
+(22, 'sadd', 'asd', 'asd', 1395863642, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `posts`
+--
+
+CREATE TABLE IF NOT EXISTS `posts` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `time` bigint(20) NOT NULL,
+  `date` varchar(20) NOT NULL,
+  `type_id` int(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Дамп данных таблицы `posts`
+--
+
+INSERT INTO `posts` (`id`, `title`, `content`, `time`, `date`, `type_id`) VALUES
+(1, 'Тест', 'Тест1', 1396598927, '2014-04-04', 1),
+(2, 'Тест', 'Тест1', 1396599339, '2014-04-04', 1),
+(3, 'Заметка №2', 'текст', 1396599563, '2014-04-05', 1);
 
 -- --------------------------------------------------------
 
@@ -153,7 +178,10 @@ INSERT INTO `sessions` (`session_id`, `last_active`, `contents`) VALUES
 ('52d6d28b51fe26-37638174', 1389823654, 'u0NCyr7zBsak5SHJNwIbeaGmn4j6U29u3oRLhbD8JLtI7uX8+U05hs6RXoZ4Vr1kDx68w35z4OqvBKK6my0486m9eEvFkZ1Fs85QgtpXhywFS+zjByzF2OOgpRu6QFdD4pzA2r85f4xarb5kSUtZ2K2oKsotQiyfEIwX6tCCuLFHE/yKuRRuMggxgp63c3i+3HUbAOB0IY/faNPHNQYvzuvzBybW5Rj15Algqqa/nkcxroMvKL03u2RXYvzC9aVmUvgzkqEbp2MoHH2u3Wr+51eWo55M/ujlL7DxyylXd9M+hrK93UxqLWDO5lMTvUaL79jmDURAVZnbr8bpFIn2srRSs2vxvKRldbDovz7GcfZUhiQbUwkccgHnjwMa1Bl11geaYR5hxXrbBb6QD1TmZjGl1Y1z8uxdL8fkIwhNRWbsstBQPSmIi3YJafvPtHUvC5+0WC3RE+mfzb+6tk+wylk4hYpEogxXHL3J9EUP42wU+L+/KydJ2cAEXlwUFL+TnDN2YdGVqZBjGBxQOk1nLVuC6A4BuQYGBXImac5r79xk5JlLFZabKlUMsdYo1z+r9gavmPKQnvUGbmmBL2fs4uJJRVlyvIZdSkJE7G20bzAJHzslK7VbsNe1dPn68KLt4iDQg4lEiSFhWKyGFH+J5+9ATveuJ8cHH18z27m9dSSPK9ggSNNZEj5qJyBSKjbnICcIWYbfUqZ+J0HMXrW4MovFUsaEd6d/pGwolR18H/pm+a0dsN+M0LjYkqS8uw6EvWukXUXiqvPwXGb8ACjihZK/h9O7WuKS2xZuY2qTd7UkWCShp+cK8WWvtbJlE2oleRtz6i1DQDRQQuo14awu5CDibWsaMLP34GaBaXzTd4u4tICuB9qXDy/nkhtmibycwIgc9kpTxNd0hBQVWQKNmPwZmZCYIjCmjz2WqLIenwVnjc4/S10wBZZfsK4RjQ5T9YhOwPvGcBRofAEQfT8rJOH1ARjh0qFTBU01eMBVyX/deMmjhPocIL5XVXjJT0YJ3hZi'),
 ('52d7fa7789bd55-14880740', 1389886072, '1tFdo3yypJSelsz9Z0e+ZqqKdxDSbxd3u2VnL4vWJ2JjYRVxg7Vm1+x5/T2br5A/goxviu5QE8zSMALL3lDGuLHWO3Pm3SEfIJtbDNmGR58='),
 ('52d859d3be3bb1-21213975', 1389910488, 'R0PpZvU8NBMGLaQKYJ3hlWsI0OKknT9iWWlKnGt3jX0505zf8IuF4AV2WevfRzRx49RdJV3op51VOzrIAoXpyF6nuKVmu31Esw/ikASMDT08ZmirlFJpXuOZ2KJagoZk9lfVxULtqZHGyutKILG8bXt4LizOFq9vBiVUkMXI4p5U7mENkl8PN1H2ZWxkmSFKCK4CEVwzvhsB1g406lYWcmbHWmosmuwIAnXRMkmprxi0JnX8IBfSMlPa+6aOiU7uXcv78RgaVGYC+8Gw17utIwpnZVKhyXPWm1k9rh2qbYZ5cT/6prrTNy3ycZKU0t9MreZAPx9Sjs7oXSzAudHWIlkVJ0yycT2Nn98B/aeH4c3iv1AgQObZqM5NuZmUjnspBAeDOg54kc8ed8WTgiKVjJxZq8K+ATgSQLzj7e4i8UH3msuMc8fISjmBYUzMMg2TCFCNmpTYihfIxBhbJsL4Zz21I0GNCj3gzAc+O9XT0pTism27k0FmEm2UtZgFMKXW+/e7bJQKXgvFCSpul2LMZuliW4wEtBY6LluehAr2/Je6ozihFog/XLpplfTEy4o5mL4NX2xXS+ps9BhQKuat3ICcORj9dSI7G6gfxZ3DQQ0fW65Fc+ApxV/l55uFWSfJJ/rdNDar0x0rotkKF2blFLxnSid8zjjT7wg5qd14K4g9MKsrCiuv73K9LGqNffLmdvFA3LE0M4mcyJ0tAACBrdRROvmCf8eALXDKKN+yGswxxld86zshMgS1LluZcKyBSrvS53W1F8z+Gm9JqPpW4yIj71ojupO0DPlDeELutkaxFFPvTdBkS9ZVTAGbr9Vx9eOKMkz0IxMTp6Z8B34sxt1llirDjJ1FZZ/Fcp5uuUQb1qht6yW6D3bqZyP81OGkdrnPTmBc0gbpiJJkVnH34GeVXLRFs/6uH/g4Xx85+R9BYQCgrPM2PIOOnXTrE4HgLvgeiysTgaHxue8uBASWGJYZPb1dkqejVOqRBEbvzbtrMQJt9ZC5araX3kiEKxMcw3A1XqENpXCPAUoR'),
-('5339bb9e07e281-05517043', 1396292510, 'mfyvxGi9o6ociaHOXqgROzhyoR/v/UiZvBbbp2ETxbhD2PetH5nLZsjUZqCj8UHBKUWaHlfPrHlLaU4YF4Gsl0ZwDB1I9pfol9Y5k2qxgitmP1NvxmBoWC+RUG7zE1pXMGWtDYo77lNWn5yN3NSQnmr/Pj4dBahIcqsTzyH9bgU35uuTiFmNkCC3plHPBFnKHOWUhWShJOaDV6EyRtammRwQr/He49iRQaYoC3JyUJjEFWDmVW4eQxxPvN3Skkz+GHT0XriHmVgxqPMzaK6MRrAE5D7KP5rcEmVP809xdDyR9UG80LFuhUCeLV50gvgIcJ7UX3bJU3kQ1/f9O1gQYBeNsfNvMFwELPnybWMiWbVh3EDzKxWaMbGEGJX2zywSbhID8V03AA2vIa/MIhzmAxwNu3NNfZYrwTrmBjDgNyh6Qe2SaGmUKj/mBWYmqM6HmIe9DIBOAUjTUdTrnDhoLgl4VjAjZmb6yICaxpIAM8Z0JHXbECbfLm/XodO7wwC/0qv9NmyvFJ12wDCp7/mhW65bj8umrlUiwN0x5NL2rzjIiU/lPbTx4UuK/kYHAbTQd2FNbNkmNu4HlB1y8x/EwdEZ8+m+zip+yuktMbQ/6nXSHZ8Wj73RffS1Y81Ce8jICM9SE3wYFRXv6urqSNvSagdfs+Q3v/i8315IH+rT4Lqjlr9pMlGLzdIQAxveVKemP+yPqO3Tu1Teu1HFCzGfFO5izVQCIymPii2iKdW0xevkhtSg62Ads2XNqmaxAbOwN+Gb8OgZ8+kqXCyRRwuky3b9nS6iRhUpd6lwFG/rgq1Sw00adCTjmucwr9RllshZQvwRJRIg0l+U5cDaGoca7g2CMfsAeFgMYRSNcVq6JUtN3FV96hIu5Sys75CYlK4unTbxuMUsOyNXyhi4Fz8UH7yDU3utqR0wjyRsmPwRaLHgsD7FKOUcTkv9CQZJNIAyUG1c+cme9SX5MKVu6Xr5KPrO68J7kQ==');
+('5339bb9e07e281-05517043', 1396292510, 'mfyvxGi9o6ociaHOXqgROzhyoR/v/UiZvBbbp2ETxbhD2PetH5nLZsjUZqCj8UHBKUWaHlfPrHlLaU4YF4Gsl0ZwDB1I9pfol9Y5k2qxgitmP1NvxmBoWC+RUG7zE1pXMGWtDYo77lNWn5yN3NSQnmr/Pj4dBahIcqsTzyH9bgU35uuTiFmNkCC3plHPBFnKHOWUhWShJOaDV6EyRtammRwQr/He49iRQaYoC3JyUJjEFWDmVW4eQxxPvN3Skkz+GHT0XriHmVgxqPMzaK6MRrAE5D7KP5rcEmVP809xdDyR9UG80LFuhUCeLV50gvgIcJ7UX3bJU3kQ1/f9O1gQYBeNsfNvMFwELPnybWMiWbVh3EDzKxWaMbGEGJX2zywSbhID8V03AA2vIa/MIhzmAxwNu3NNfZYrwTrmBjDgNyh6Qe2SaGmUKj/mBWYmqM6HmIe9DIBOAUjTUdTrnDhoLgl4VjAjZmb6yICaxpIAM8Z0JHXbECbfLm/XodO7wwC/0qv9NmyvFJ12wDCp7/mhW65bj8umrlUiwN0x5NL2rzjIiU/lPbTx4UuK/kYHAbTQd2FNbNkmNu4HlB1y8x/EwdEZ8+m+zip+yuktMbQ/6nXSHZ8Wj73RffS1Y81Ce8jICM9SE3wYFRXv6urqSNvSagdfs+Q3v/i8315IH+rT4Lqjlr9pMlGLzdIQAxveVKemP+yPqO3Tu1Teu1HFCzGfFO5izVQCIymPii2iKdW0xevkhtSg62Ads2XNqmaxAbOwN+Gb8OgZ8+kqXCyRRwuky3b9nS6iRhUpd6lwFG/rgq1Sw00adCTjmucwr9RllshZQvwRJRIg0l+U5cDaGoca7g2CMfsAeFgMYRSNcVq6JUtN3FV96hIu5Sys75CYlK4unTbxuMUsOyNXyhi4Fz8UH7yDU3utqR0wjyRsmPwRaLHgsD7FKOUcTkv9CQZJNIAyUG1c+cme9SX5MKVu6Xr5KPrO68J7kQ=='),
+('533c07ea3a87c0-52585878', 1396449310, 'kPbb7bICju/+7O3k3L4jlYmoTcxHhu56+0vC1tPjC3BErhkXNIxn9L+BiJiQhaA/Is2mNPhcI5KmbfMXf0IF4VYUXCraIUbpjlaIoSNdg7pamHW2YgtG+jkiCNU8686Q86CcmFlw0hbtmikhXcpvqEwjsb2NpkmTTqmYVxLa0w5A2roVD5Htcpk5KsjuJHhWUwO0sI8JHowFtvh3H6EU1E7kkSB6TXm/T7HuzQjCBoBhQ3kkM3P4mOZvhOpSJdBGWJE3a3desNaJA7PWweAl9PSuJF+QlHx/UIn9hDve+ETSk4Vntrc/oyk34YFMCVUAknjWiHcO/bAWAyDUcO9wKB+hPjryDbZNREbFk78BPsApX7ZktHYC/aRot0vkE5htwPYW+6jvUhy9BW/rBTlcYki7Hrq9yFP7qoa9/pXNln5u4PKuqbOD1ByoHgrrdpEHuziTApxYEQNmyZPGOpVu/qc4h90GlSRO3NZ6kpxPl70gykLbJ+INwBKuQyk965/eG4/dielAEGkNP6X6Hi7fWkVa3cFyegu2xgYI/pFOxKm9I12rQvONODXWj7v0qskCNeKpRxE7Vm3ZirU8AX8GWIjLAVjg57GZ/1k74mY4Hhts2dlS6kT68B+n0+KP4m7P3C5cvt4+ZGW+2ITXrnxP8vYHgcH9KSeXXFhLjgSB5IJxJ0YO1WJDthNqFcWayRm9g0zQrHznq8HLOJoKxvnQZWZNtMQMp2HLe1QOPD5DFEgSUmGpuEEq3+ogUmEcnsp5V0LXEhPKsImfYsnqlAS6FHnhUfH71TY+aDljz9pBaewaqDkZ8cExCNXddgOWpo+mItyDlFVV497E1G9gCO9vTAtRI5rSGIGT9WNOifRb7RcYgGYgqCcNBh3rTnpbGtWjVuSP3X6dti7duKeiTsNVk8Or/QcHSvaHfA0q1zZNyMtIMXFogbDmHge6ZCjbH6UfFMG6ZhjkdB/URqmcJ+p4rZQF4Lo7AQ=='),
+('533d0691c26951-81414986', 1396521244, 'AzRlruZczXeWTjaMWnKmGG1dwf9YnKXLJulAVxM0+h4HNM9FOtsIj/yMxpGq1X0WSg50oknuJvgKnGC2OA7iJ13qAUVnA25F363JDDMg2NsoN75EdQKGgIuWhM0tVugvBCZbdoyYAvJm/uArrjTGhKHWc+eo5LmH2AY7McpFumINXx83yi2q6bszgPG+545puj2YUNUQ26TFwnmhHF9LbQnBNURwqMseAA1/EO9PJj0GxXzfo5WkCVxJrY1RwJlp2DHU5wCOsBpOCD1p9cTlBQ7xEB9sWGQtcGj14YElGShXl/JMJ6x93vrFzMbAPAgqnG/V6lRQvut+E5mdtTogykvbvZw6yI8xbZiAZKLPRy2XNSqSJxbiU0iKgUmEWHuKsqvB3HQlOjNjuk7JF7acaLHk7v0Kv6Piw/PuvQt6u/mRJskB0jYJOy6JALsa2Kc7PU4jdsbL76VpjaHkbXKUJgwEOJaPZYyV2a0S+qYsBjHvdsxdu9pAARTCNKV8/ohaHRnc7rm7xyIBr02rtKB6gBEb4i/Oqr7WQFKF7QfnWcosfxbiHnDrG2znxgnG0zC9BzTh+yi1WoyfQmoZYCUx22WN2153Q1+aBOnHG4pEF4qYSkOYw8bIRu/RsoFQGSc2Xuyu86HihEYduby8V6/PKbIe9KxCzdjhp4WFc6W6iyGigdMoaBk5K71bsSuIyaS88xWeCSIbZvJy+lCuyJsiutj9q84UVJYdctV+Bq5c28K1uQwoJAQet3i9wL9qCEQFpqYuvkO8Em6iCBgWGdDhWEQREAf3JwyE6/ulH3JXFgiXNgQnvHXK3mbhYNz5biNpX+BbFS/1SWgV4diPMG2E5ECqH/QxXCg9nfjuQTkpeTPi5zGgT6GU01Tw/cIJv76OdyZ/5xDGpFXFEyDWmmV8kKDnSt5JGp+MbyitiQmTYBj1r8o6pkEZE/y3oa47LA/sxheVsjmWzfE6jGUkwWP5yX30dSFOGhg51wpMMl4V+a/mAUFo/IWRhdc12M3mYnSZVwWHF7qUkb+J2J1XmQmDQs7INwHIR41dU/G69rXc2KP9+j8h+tRMFOpCVlkd/Zn3DhnKaoDCA+Pfsn74tc8Tf7PC3pPIs9DKFkX3zg+ISLlCQSfmHrOwrzq47R/JY35JJbgcAarfMK1vR/GoI3CqsDVxj6Qc3feLoZPpEny02tfAsFjMOO4UieZMKNziSJ2QAKPyCTvk6tzMyniY/bk00DF6RNj+CVH/ykZhsIaBVTI9RvtNmcHQ0R/xvgUmqPHwwoMgpjVtff0WG/BG8/KSLP2UwjkjLKU6CRsu0wyl28N8D6xXEp+lnasgDqupXMAK/KUffNSORaYj1GscuLtLU1lIoZwugrSeuz7IcFA16p9UmMgdVYEtotEwQkqA0kS2tkBhL/jSupByN2WiyPk2Cg2IcjdlUz/6c7uAz6D+HxkEFN9MdeYnuw=='),
+('533e6639abe008-30014191', 1396612656, 'H8SjxC8DKO2Q6EGSK/6X+sM1pE4nhU1nGaCq99ndNu6O8W+qoJKpXRuOfytE8hUxBMh9Zf8RAQpH/taln9MavJATP/drHKz3TTgIBtmNkNKGyKi8IPVAqvfmWzfaznMZCxOdKFUd5T0oIqy4wnChNSmJLCykZobxYUBxu6wHdvkEEQ+kcHfLry53cZEmk9sVbGrtFYY5A6CWN0y8h6yRpU2gQyxI9xZ2Gx4QB021GuhTrqm2WRCVbhZZGqVIRfphxWDpitjI3Ih7y1LTuyFwCpgLRNOi2JUc/IDUtobu7VqmKerrxw1H3LGpxfGhKI/gxGvbBx4Bb4RgV1PNrc0VRVlOZ7R5FknOB7Rf2TEwN0fzJXY9Vj7k1khYDzbVx9twpI+eeiTIKAg+auLgGKQe7BlOqnWmSE7ej5TejIaqnO3jpt8thXwbuE/E+fORRR/0VSRFkYLSrKkv8n9D2VV2BzmHoW490aRQAbUiba2zS5smtfu+R4ObHAx0SzVm4JP+EXZWUqpIcsBYrAmAhD8+sVvkDg+djuKp+++uLDQWRwoqNcxbtq4opb89bC+t6YYUJ12cEfEiURBJfmS4t4uk3AebzOxrWMgeyzNDZAKJRupbq5rARJz+aLhormjfaBIPL5wahdxfa1u3LzfilU2+rcybpkLyMvVd7VpDT9KKepBn6r+Md1QfQBQF6v/KDBsxtAa2LJrsXwDtnXsy8w+km7p3HFJqsnZDhsTIWGi7neO48CBXwHSMsNPZHpUsVMI4Q90qkD1YTKAoREk/kqBcSa6pmeHncehNUvgGCI3xjfsxUK5tHcPTm3JTibhaIh7SzlPJVwpwEs6kTWhVEa2qiz14JE2J7mMpj/GQ3JG55V9pBcabMlwIHaBhbrjEkyAqYHijtJx0LWEGFU1+IncbHzEzB64xllJlPOvKq3nNmJIQ+wfCMFWUcrIKhpmynzI5vIwlLiaZU7qPBwsdbO5CsFm42cFP1YckcQF+OVEd5hzG7xyj3nFygH8/aLYxKyc/gU0bUE0+MyAk6VGMpC3ErgFxsM4CG5ejZDzS2Uz2z3rK163XIWV3jYMdWPDVFDuc6eX3Bc64L8nETWPDIgu9hFZA/RMgRayy7/NXsUONjDoyxhvFdRu0SK5/44tNbhCAy0ouYMM9hueW6ekCZAjJmzEwCWJjTsJwlaeIvf+RZ4Ey+CKb8JHGlmYjrM5UFjoZ4gIL+bXavmr4X5AqtbGBcVqgfjgOO9v5uFzj5IQYZLwQUEzSgeVKI5U4jOwtwYOrZCE8zMDkENpuyGgGet3SG3Oiq5KF0tObKpkxBZ3WDTP0ToT7HWc4W7ePshcDphNDyQzd7bEj1AxF2yXMpSyXrZ/V2eq4lLGaUrDOufjwH0vWFErfnA1DuAKp4PeA/bTY2v70hazt4BXA8Zxs3S7OJARyulNNGvJYPWRXxzcybCp7YhYSXvvNSg==');
 
 -- --------------------------------------------------------
 
@@ -181,6 +209,26 @@ INSERT INTO `status` (`id`, `alias`, `status_name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `types`
+--
+
+CREATE TABLE IF NOT EXISTS `types` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `type_name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Дамп данных таблицы `types`
+--
+
+INSERT INTO `types` (`id`, `type_name`) VALUES
+(1, 'Короткая заметка'),
+(2, 'Текстовая запись');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `users`
 --
 
@@ -203,7 +251,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `email`, `username`, `password`, `logins`, `last_login`, `reset_token`) VALUES
 (13, 'user@user.ru', 'user', '3f884a8dcd987e71494a1390f9b0a51306944707ede59dddd003428628c64cf6', 46, 1389910454, NULL),
-(14, 'admin@ya.ru', 'admin', 'f4b4ad84a019c58c380e9ac1a9ab12c4bd4171363b8c6822b8f2c5f2ff699230', 93, 1396292510, NULL),
+(14, 'admin@ya.ru', 'admin', 'f4b4ad84a019c58c380e9ac1a9ab12c4bd4171363b8c6822b8f2c5f2ff699230', 96, 1396598329, NULL),
 (15, 'Gangsta1@i.ua', 'VladikKiller', '0ceb7798fdcef9e678cd28b0bd6af434e1efbb2381b5a9d447cf497607bbbf3e', 10, 1387570500, NULL);
 
 -- --------------------------------------------------------
@@ -246,7 +294,7 @@ CREATE TABLE IF NOT EXISTS `user_tokens` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `uniq_token` (`token`),
   KEY `fk_user_id` (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=27 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=28 ;
 
 --
 -- Дамп данных таблицы `user_tokens`
@@ -267,7 +315,8 @@ INSERT INTO `user_tokens` (`id`, `user_id`, `user_agent`, `token`, `type`, `crea
 (21, 14, '2b37a1c9bb4ef4494c5d549b28f3e231639f526d', '665d8041103fc545b0c0c675487e10ef5eab03bc', '', 0, 1396350860),
 (22, 14, '5f4590c200ed043574bf63f920e2be187372dc26', 'f36d55a0bcd341cb87f4198cdef0c07d3ec8b1bc', '', 0, 1397246960),
 (24, 14, '251b0bb64a1f1b6b72f6ed6227fda26a29132359', 'd9dce3b3755d9d56390815d18966709e7d2c8785', '', 0, 1397501477),
-(26, 14, '251b0bb64a1f1b6b72f6ed6227fda26a29132359', '9ad70a9ab01cfc63a6166ed624a7365e6a939ae1', '', 0, 1397502110);
+(26, 14, '251b0bb64a1f1b6b72f6ed6227fda26a29132359', '9ad70a9ab01cfc63a6166ed624a7365e6a939ae1', '', 0, 1397502110),
+(27, 14, '4ef7f953d576e3400cf007b2691f589497e86cac', '74b6b226a31e0f4d7a611f24732a560756abad98', '', 0, 1397652714);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

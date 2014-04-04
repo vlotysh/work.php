@@ -3,18 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/work.php/application/classes/controller/ajax.php</file>
+            <file>file:/C:/wamp/www/work.php/application/views/postbook/postslist.php</file>
             <file>file:/C:/wamp/www/work.php/application/classes/controller/postbook.php</file>
-            <file>file:/C:/wamp/www/work.php/media/js/main.js</file>
-            <file>file:/C:/wamp/www/work.php/application/classes/controller/articles.php</file>
-            <file>file:/C:/wamp/www/work.php/application/classes/filescanner.php</file>
-            <file>file:/C:/wamp/www/work.php/application/views/articleList.php</file>
-            <file>file:/C:/wamp/www/work.php/application/views/articlesPage.php</file>
-            <file>file:/C:/wamp/www/work.php/application/views/template.php</file>
             <file>file:/C:/wamp/www/work.php/application/views/postbook/addform.php</file>
             <file>file:/C:/wamp/www/work.php/application/classes/model/postbook.php</file>
-            <file>file:/C:/wamp/www/work.php/application/classes/controller/application.php</file>
-            <file>file:/C:/wamp/www/work.php/application/classes/controller/primary.php</file>
+            <file>file:/C:/wamp/www/work.php/application/views/postbook/allposts.php</file>
         </group>
     </open-files>
 </project-private>
