@@ -34,9 +34,9 @@ class Model_Postbook extends Model {
        
         
       if($type_id) {
-          $query = DB::select()->from('posts')->where('type_id', '=', $type_id)->join('types')->on('posts.type_id' ,'=', 'types.id')->execute()->as_array();
+          $query = DB::select()->from('posts')->where('type_id', '=', $type_id)->join('types')->on('posts.type_id' ,'=', 'types.id')->order_by(`date`, `DESC`)->execute()->as_array();
       }else {
-           $query = DB::select()->from('posts')->join('types')->on('posts.type_id' ,'=', 'types.id')->execute()->as_array();
+           $query = DB::select()->from('posts')->order_by(`date`, `DESC`)->join('types')->on('posts.type_id' ,'=', 'types.id')->execute()->as_array();
       }
        
         return  $query;
