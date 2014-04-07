@@ -27,7 +27,7 @@ class Controller_Postbook extends Controller_Application {
                     
                     'current_page' => array('source' => 'query_string', 'key' => 'page'), // source: "query_string" or "route"
                     'total_items' => $count,
-                    'items_per_page' => 10,
+                    'items_per_page' => 2,
                     ));
                     $this->request;
         /*
@@ -42,12 +42,12 @@ class Controller_Postbook extends Controller_Application {
             
         $data = array();
        
-       $data['posts'] = $model->getAllPost(null,$pagination->items_per_page, $pagination->offset);
+       $data['posts'] = $model->getAllPost(null,'DESC',$pagination->items_per_page, $pagination->offset);
         
        
        $data['page'] = $pagination->render();
         
-        $data['types'] = $model->getTypes();   
+       $data['types'] = $model->getTypes();   
          
 
        $data['addform'] = View::factory('postbook/addform',array('types'=>$data['types']));

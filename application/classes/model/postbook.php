@@ -13,11 +13,23 @@ class Model_Postbook extends Model {
        return $query;
     }
     
-     public function counter($table = 'posts') {
+    
+    /**
+     * Получения количества записей, возможны варианты с условием
+     */
+     public function counter($table = 'posts',$where = NULL,$value = NULL) {
+         if($where == NULL AND $value == NULL) {
          $query = DB::select(array('COUNT("*")','total_posts'))->from($table)->execute()->as_array();
+         } else {
+          $query = DB::select(array('COUNT("*")','total_posts'))->from($table)->where($where, '=', $value)->execute()->as_array();   
+         }
+         
          return $query = (int)$query[0]['total_posts'];
      }
     
+     /**
+     * Добавление записей
+     */
     public function addPost($array) {
         $time = time();
         
@@ -34,7 +46,7 @@ class Model_Postbook extends Model {
         }
     }
     
-    public function getAllPost($type_id = NULL,$limit = 10,$offset = 0) {
+    public function getAllPost($type_id = NULL,$order = 'DESC',$limit = 10,$offset = 0) {
         
        
         
@@ -44,7 +56,7 @@ class Model_Postbook extends Model {
                   ->where('posts.type_id', '=', $type_id)
                   ->join('types')
                   ->on('posts.type_id' ,'=', 'types.id')
-                  ->order_by('time', 'DESC')
+                  ->order_by('time', $order)
                   ->offset($offset)
                   ->limit($limit)
                   ->execute()
@@ -54,7 +66,7 @@ class Model_Postbook extends Model {
                    ->from('posts')
                    ->join('types')
                    ->on('posts.type_id' ,'=', 'types.id')
-                   ->order_by('time','DESC')
+                   ->order_by('time',$order)
                    ->offset($offset)
                    ->limit($limit)
                    ->execute()
