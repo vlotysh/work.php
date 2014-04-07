@@ -188,18 +188,12 @@ Route::set('login', 'login')
 		'controller' => 'account',
 		'action'     => 'login',
 	));
+
 Route::set('logout', 'logout')
 	->defaults(array(
 		'controller' => 'account',
 		'action'     => 'logout',
 	));
-
-Route::set('basic', '<controller>',array('id' => '[a-z]+'))
-	->defaults(array(
-		'controller' => 'articles',
-		'action'     => 'index',
-	));
-
 
 
 Route::set('postbook', 'postbook')
@@ -221,6 +215,12 @@ Route::set('delete', 'delete/<id>', array('id' => '[0-9]+'))
 		'action'     => 'delete',
 	));
 
+
+Route::set('basic', '<controller>',array('id' => '[a-z]+'))
+	->defaults(array(
+		'controller' => 'articles',
+		'action'     => 'index',
+	));
 
 Route::set('default', '(<controller>(/<action>(/<name>)))')
 	->defaults(array(

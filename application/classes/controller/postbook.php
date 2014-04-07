@@ -20,24 +20,39 @@ class Controller_Postbook extends Controller_Application {
                                      
                 $this->request->redirect('/postbook');
             }
+        
+         $count =  $model->counter('posts');
+
+        $pagination = Pagination::factory(array(
+                    
+                    'current_page' => array('source' => 'query_string', 'key' => 'page'), // source: "query_string" or "route"
+                    'total_items' => $count,
+                    'items_per_page' => 10,
+                    ));
+                    $this->request;
+        /*
+        $ms_data = $this->MailModel->getAllOutInBoxPm($user->id, $pagination->items_per_page, $pagination->offset, $type);
+
+
+        //то тогда не показывать кнопку "Загрузить еще"
+
+        
+         * 
+         *          */
             
         $data = array();
        
-       $data['posts'] = $model->getAllPost();
+       $data['posts'] = $model->getAllPost(null,$pagination->items_per_page, $pagination->offset);
         
+       
+       $data['page'] = $pagination->render();
         
         $data['types'] = $model->getTypes();   
-        var_dump( $data['posts']);
-       foreach ($data['posts'] as $po) {
-           echo $po['title'].' ';
-            
-            $ar[] =  $po['date'];
-        }
-     
-     //  // 
-        $data['addform'] = View::factory('postbook/addform',array('types'=>$data['types']));
-       $data['postslist'] = View::factory('postbook/postslist');
-        $this->template->articles = View::factory('postbook/allposts',$data);
+         
+
+       $data['addform'] = View::factory('postbook/addform',array('types'=>$data['types']));
+       $data['postslist'] = View::factory('postbook/postslist',array('posts'=>$data['posts']));
+       $this->template->articles = View::factory('postbook/allposts',$data);
          
 	}
 }
