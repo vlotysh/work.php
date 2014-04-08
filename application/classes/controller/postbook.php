@@ -18,6 +18,7 @@ class Controller_Postbook extends Controller_Application {
         $sort = 'time';
         $order = 'DESC';
         $date = null;
+        $count = null;
         
         if($_POST) {
                                
@@ -35,14 +36,24 @@ class Controller_Postbook extends Controller_Application {
             
            if($this->request->query('date')) {
            $date = $this->request->query('date');
+           $count =  $model->counter('posts','date','=',$date);
            }
            
           
            
         }  
+         if($this->request->query('m') && $this->request->query('y')) {
+             
+             $m = $this->request->query('m');
+               $y = $this->request->query('y'); 
+             
+             $count =  $model->counter('posts','date','LIKE',$y.'-'.$m.'%');
+       
+         }elseif($count == NULL) {
+              $count =  $model->counter('posts');
+         }
         
-        
-        $count =  $model->counter('posts');
+         //debug_backtrace();
                      
         $pagination = Pagination::factory(array(
                     
@@ -50,17 +61,20 @@ class Controller_Postbook extends Controller_Application {
                     'total_items' => $count,
                     'items_per_page' => 10,
                     ));
-                               
+               
        $data = array();
+       
        if($this->request->query('m') && $this->request->query('y')) {
                
                $m = $this->request->query('m');
                $y = $this->request->query('y');        
                      
                $data['posts'] = $model->getPostByMonth(null,$y,$m,$sort,$order,$pagination->items_per_page, $pagination->offset);
+             
            
            } else {
-               $data['posts'] = $model->getAllPost(null,$sort,$order,$date,$pagination->items_per_page, $pagination->offset); 
+               $data['posts'] = $model->getAllPost(null,$sort,$order,$date,$pagination->items_per_page, $pagination->offset);
+                
            }
       
        $data['sorts'] = Kohana::$config->load('sort');
