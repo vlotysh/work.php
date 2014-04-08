@@ -19,9 +19,9 @@ class Model_Postbook extends Model {
      */
      public function counter($table = 'posts',$where = NULL,$opt = NULL,$value = NULL) {
          if($where == NULL AND $value == NULL AND $opt == NULL ) {
-         $query = DB::select(array('COUNT("*")','total_posts'))->from($table)->execute()->as_array();
+            $query = DB::select(array('COUNT("*")','total_posts'))->from($table)->execute()->as_array();
          } else {
-          $query = DB::select(array('COUNT("*")','total_posts'))->from($table)->where($where, $opt, $value)->execute()->as_array();   
+            $query = DB::select(array('COUNT("*")','total_posts'))->from($table)->where($where, $opt, $value)->execute()->as_array();   
          }
          
          return $query = (int)$query[0]['total_posts'];
