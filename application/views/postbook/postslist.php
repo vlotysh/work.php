@@ -1,3 +1,5 @@
+
+<?if(count($posts) > 0):?>
 <table class="table table-striped">
   
     <? $i = 1; $date = ''; foreach ($posts as $post):?>
@@ -18,3 +20,8 @@
     
     <? $i++; endforeach;?>
 </table>
+
+<?else:?>
+
+<p>Записи отсутствуют</p>
+<? endif; ?>

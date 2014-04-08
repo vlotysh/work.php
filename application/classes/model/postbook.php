@@ -46,33 +46,105 @@ class Model_Postbook extends Model {
         }
     }
     
-    public function getAllPost($type_id = NULL,$order = 'DESC',$limit = 10,$offset = 0) {
+     /**
+     * Получение всех записей
+      * Принимает тип, сортировка, порядок сортировки
+     */
+    public function getAllPost($type_id = NULL,$sort = 'time',$order = 'DESC',$date = null,$limit = 10,$offset = 0) {
         
        
         
-      if($type_id) {
+      if($type_id) {#Если передан только тип
           $query = DB::select()
                   ->from('posts')
                   ->where('posts.type_id', '=', $type_id)
                   ->join('types')
                   ->on('posts.type_id' ,'=', 'types.id')
-                  ->order_by('time', $order)
+                  ->order_by($sort, $order)
                   ->offset($offset)
                   ->limit($limit)
                   ->execute()
                   ->as_array();
-      }else {
+      }else {#Выборка всех записей
            $query = DB::select()
                    ->from('posts')
                    ->join('types')
                    ->on('posts.type_id' ,'=', 'types.id')
-                   ->order_by('time',$order)
+                   ->order_by($sort,$order)
                    ->offset($offset)
                    ->limit($limit)
                    ->execute()
                    ->as_array();
       }
+      
+      if($type_id && $date) {#Выборка записей по типу и дате
+           $query = DB::select()
+                  ->from('posts')
+                  ->where('posts.type_id', '=', $type_id)
+                  ->and_where('posts.date', '=', $date)
+                  ->join('types')
+                  ->on('posts.type_id' ,'=', 'types.id')
+                  ->order_by($sort, $order)
+                  ->offset($offset)
+                  ->limit($limit)
+                  ->execute()
+                  ->as_array();
+           
+      }elseif ($date) {#Выборка записей по дате
+               $query = DB::select()
+                   ->from('posts')
+                   ->and_where('posts.date', '=', $date)
+                   ->join('types')
+                   ->on('posts.type_id' ,'=', 'types.id')
+                   ->order_by($sort,$order)
+                   ->offset($offset)
+                   ->limit($limit)
+                   ->execute()
+                   ->as_array();
+        }
+      
        
         return  $query;
+    }
+    
+     public function getPostByMonth($type_id = NULL,$y =null,$m = null,$sort = 'time',$order = 'DESC',$limit = 10,$offset = 0) {
+           $query = DB::select()
+                   ->from('posts')
+                   ->where('posts.date', 'LIKE', $y.'-'.$m.'%')
+                   ->join('types')
+                   ->on('posts.type_id' ,'=', 'types.id')
+                   ->order_by($sort,$order)
+                   ->offset($offset)
+                   ->limit($limit)
+                   ->execute()
+                   ->as_array();
+                  
+           
+           return  $query;
+     }
+    
+    /**
+     * Получение всех даты где есть записи
+     */
+    public function getDays() {
+        $query = DB::select('date')
+                  ->distinct(TRUE)
+                  ->from('posts')
+                  ->execute()
+                  ->as_array();
+        
+        if($query) {
+        foreach ($query as $q) {
+            
+            $dateArray[] = $q['date'];
+                       
+        }
+        
+        } else {
+            return fale;
+        }
+        
+        return   $dateArray;
+        
     }
 }
