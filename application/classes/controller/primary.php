@@ -18,12 +18,8 @@ class Controller_Primary extends Controller_Template {
         
         
         $this->template->scripts = Filescanner::scanFile('media/js');
-        $this->template->styles = array(
-            'bootstrap-responsive.min',
-            'SyntaxHighlighter',
-            'bootstrap.min',
-            'style'
-        );
+        $this->template->styles = Filescanner::scanFile('media/css');
+
        
   
         }

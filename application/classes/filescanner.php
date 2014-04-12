@@ -19,12 +19,11 @@ if (is_dir($dir)) {
      $array = array();  
     if ($dh = opendir($dir)) {
         while (($file = readdir($dh)) !== false) {
-           
+           if($file != '.' AND $file != '..')
            $array[] = $file;
         }
         closedir($dh);
-        unset($array[0]);
-         unset($array[1]);
+      
         
          return $array;
     }

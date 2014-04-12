@@ -9,8 +9,9 @@
                           <?php
 
 foreach ($styles as $style) {
-    echo HTML::style('media/css/'.$style.'.css');
+    echo HTML::style('media/css/'.$style);
 }
+
 ?>
           <?php
 
