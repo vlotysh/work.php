@@ -13,7 +13,7 @@ class Controller_Articles extends Controller_Application {
         
         
          $this->template->work = 'active';
-        $this->template->addarticle = View::factory('AddArticle'); 
+        $this->template->addarticle = View::factory('addarticle'); 
         $this->articles = ORM::factory('articles');
    
         
@@ -33,7 +33,7 @@ class Controller_Articles extends Controller_Application {
         
         $data['status'] = Session::instance()->get('status');
         $data['articleList'] = View::factory('articleList', $data);
-        $data['addarticle'] = View::factory('addArticle', $data);
+        $data['addarticle'] = View::factory('addarticle', $data);
         
         
         $this->template->title = 'Работа';
