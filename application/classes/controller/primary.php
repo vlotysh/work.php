@@ -14,9 +14,7 @@ class Controller_Primary extends Controller_Template {
         $this->template->addarticle ='';
         $this->template->error ='';
         $this->template->message ='';
-        
-        
-        
+                
         $this->template->scripts = Filescanner::scanFile('media/js');
         $this->template->styles = Filescanner::scanFile('media/css');
 

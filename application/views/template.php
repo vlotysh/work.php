@@ -13,6 +13,7 @@ foreach ($styles as $style) {
 }
 
 ?>
+        <script src="/media/js/jquery.min.js" type="text/javascript"></script>
           <?php
 
 foreach ($scripts as $script) {
