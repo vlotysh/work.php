@@ -47,6 +47,7 @@ $(window).load(function(){
 			$('#carousel-works').carouFredSel({
 				responsive: true,
 				width: '100%',
+                                height: '400px',
 				auto: false,
 				circular	: false,
 				infinite	: false,
