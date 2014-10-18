@@ -70,6 +70,33 @@ $(window).load(function(){
 					}
 				}
 			});
+                        
+                        			$('#carousel-works1').carouFredSel({
+				responsive: true,
+				width: '100%',
+                                height: '400px',
+				auto: false,
+				circular	: false,
+				infinite	: false,
+				prev : {
+					button		: "#car_prev",
+					key			: "left",
+						},
+				next : {
+					button		: "#car_next",
+					key			: "right",
+							},
+				swipe: {
+					onMouse: true,
+					onTouch: true
+					},
+				items: {
+					visible: {
+						min: 1,
+						max: 4
+					}
+				}
+			});
 			
 			//	Responsive layout, resizing the items
 			$('.carousel-type2').carouFredSel({
